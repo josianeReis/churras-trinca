@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
-import * as api from '../services/api';
+import api from '../services/api';
 
 interface User {
   email: string;
@@ -16,7 +16,9 @@ interface AuthContextData {
   Logout(): void;
 }
 
-const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+export const AuthContext = createContext<AuthContextData>(
+  {} as AuthContextData
+);
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
