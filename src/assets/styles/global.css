@@ -1,0 +1,53 @@
+/* :root {
+  TODO: Definir color guide da aplicação
+  --color-background: #F8F8FC;
+  --color-primary-light: ;
+  --color-primary: ;
+  --color-secundary: ;
+  --color-title-primary: ;
+  --color-text-primary: ;
+  --color-text-title: ;
+
+  font-size: 60%;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+body {
+  background: var(--color-background);
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem Poppins;
+  outline: 0;
+}
+
+.container {
+  width: 90vh;
+  max-width: 700px;
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
