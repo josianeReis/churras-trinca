@@ -4,7 +4,8 @@ import AuthRoutes from './auth.routes';
 import { AuthContext } from '../contexts/auth';
 
 const Routes = (): any => {
-  return useContext(AuthContext).signed ? <AppRoutes /> : <AuthRoutes />;
+  return <AppRoutes />;
+  //   return useContext(AuthContext).signed ? <AppRoutes /> : <AuthRoutes />;
 };
 
 export default Routes;

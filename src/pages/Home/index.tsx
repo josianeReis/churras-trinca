@@ -1,19 +1,19 @@
 import React from 'react';
-import { useAuth } from '../../contexts/auth';
+// import { useAuth } from '../../contexts/auth';
 
 const Home: React.FC = () => {
-  const { signed, Logout } = useAuth();
+  // const { signed, Logout } = useAuth();
 
-  console.log(signed);
+  // console.log(signed);
 
-  async function handleLogout() {
-    Logout();
-  }
+  // async function handleLogout() {
+  //   Logout();
+  // }
 
   return (
     <div>
       <h1>Home</h1>
-      <button onClick={handleLogout}>Logout</button>
+      <button>Logout</button>
     </div>
   );
 };

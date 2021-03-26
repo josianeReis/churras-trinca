@@ -1,19 +1,23 @@
 /* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/ban-types */
 import api from './api';
+import { ClassItemInterace } from '../interfaces';
 
 export interface UserData {
   id?: number;
   name?: string;
+  surname?: string;
+  avatar?: string;
+  bio?: string;
   email: string;
   password?: string;
+  whatsapp?: string;
 }
 
 interface ResponseUserData {
   data: {
     user: UserData;
-    // TODO: Criar arquivo de model do usuario
-    // classes?: ClassItemInterace[];
+    classes?: ClassItemInterace[];
   };
 }
 
@@ -45,6 +49,6 @@ export function updateProfile(params: UserData): Promise<ResponseUserData> {
   return api.put('profile', params);
 }
 
-export function adorableImage(param: string): String {
-  return `https://real-api-url${param}`;
+export function adorableImage(param: string): any {
+  return `https://realapi${param}@trinca.png`;
 }
