@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import AppRoutes from './app.routes';
-import AuthRoutes from './auth.routes';
-import { AuthContext } from '../contexts/auth';
+// import AuthRoutes from './auth.routes';
+// import { AuthContext } from '../contexts/auth';
 
 const Routes = (): any => {
   return <AppRoutes />;

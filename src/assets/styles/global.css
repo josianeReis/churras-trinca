@@ -3,8 +3,8 @@
   --color-background: #f0f0f7;
   --color-primary-lighter: #eed793;
   --color-primary-light: #f8d56d;
-  --color-primary: #FACE48;
-  --color-primary-dark: #cca226;
+  --color-primary: rgb(250, 206, 72);
+  --color-primary-dark: rgb(204, 162, 38);
   --color-primary-darker: #947a2e;
   --color-secundary: #000;
   --color-secundary-dark: #FACE48;
@@ -12,7 +12,7 @@
   --color-text-in-primary: #d4c2ff;
   --color-text-title: #32264d;
   --color-text-complement: #9c98a6;
-  --color-text-base: #6a6180;
+  --color-text-base: rgb(106, 97, 128);
   --color-line-in-white: #e6e6f0;
   --color-input-background: #F4F1F4;
   --color-button-text: #ffffff;
