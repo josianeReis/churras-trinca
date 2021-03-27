@@ -1,6 +1,6 @@
-
-.teacher-item {
-  max-width: 40rem;
+.card-item {
+  max-width: 35rem;
+  max-height: 35rem;
   background: var(--color-box-base);
   border: 1px solid var(--color-line-in-white);
   border-radius: 0.8rem;
@@ -8,70 +8,57 @@
   overflow: hidden;
 }
 
-.teacher-item article header {
-  padding: 3rem 2rem;
+.card-item header {
+  padding: 3.2rem 2rem;
   display: flex;
   align-items: center;
 }
 
-.teacher-item article header img {
-  width: 6rem;
-  height: 6rem;
+.card-item header img {
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 50%;
 }
 
-.teacher-item header div {
-  margin-left: 2rem;
+.card-item header div {
+  margin-left: 2.4rem;
 }
 
-.teacher-item header div strong {
+.card-item header div strong {
   font: 700 2.4rem Archivo;
   display: block;
   color: var(--color-text-title);
 }
 
-.teacher-item header span {
+.card-item header span {
   font-size: 1.6rem;
   display: block;
   margin-top: 0.4rem;
 }
 
-.teacher-item > p {
+.card-item > p {
   padding: 0 2rem;
   font-size: 1.6rem;
   line-height: 2.8rem;
 }
 
-.teacher-item footer {
+.card-item footer {
   padding: 1rem 1rem;
   background: var(--color-box-footer);
   border-top: 1px solid var(--color-line-in-white);
-  margin-top: 1rem;
+  margin-top: 3.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.teacher-item footer .guestList {
-  background-color: black;
-  border-radius: 1.3rem;
-  padding: 0.5rem;
-  align-items: center;
-  display: flex;
-}
-.teacher-item footer .guestList span {
-  color: var(--color-primary-dark);
-  margin-left: 0.8rem;
-  font-size: 1.5rem;
-}
-
-.teacher-item footer p strong {
+.card-item footer p strong {
   color: var(--color-primary);
   font-size: 1.6rem;
   display: block;
 }
 
-.teacher-item footer Link {
+.card-item footer button {
   width: 20rem;
   height: 5.6rem;
   background: var(--color-secundary);
@@ -86,39 +73,32 @@
   transition: 0.2s;
 }
 
-.teacher-item footer button:hover {
+.card-item footer button:hover {
   background: var(--color-secundary-dark);
 }
 
 @media (min-width: 700px) {
-  .teacher-item header,
-  .teacher-item footer {
-    padding: 1.5rem;
+  .card-item header,
+  .card-item footer {
+    padding: 1.7rem;
   }
-  
-  .teacher-item > p {
+
+  .card-item > p {
     padding: 0 3.2rem;
   }
-  
-  .teacher-item footer p strong {
+
+  .card-item footer p strong {
     display: initial;
     margin-left: 1.6rem;
   }
-  
-  .teacher-item footer button {
-    width: 4.5rem;
-    height: 4.5rem;
-    font-size: 1.2rem;
+
+  .card-item footer button {
+    width: 24.5rem;
+    font-size: 1.6rem;
     justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 50%;
-    // max-width: 10rem;
-    // display: flex;
-    // justify-content: flex-end;
   }
-  
-  .teacher-item footer button img {
+
+  .card-item footer button img {
     margin-right: 1.6rem;
   }
 }

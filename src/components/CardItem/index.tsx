@@ -1,24 +1,23 @@
 import React from 'react';
 
 import './CardItem.scss';
+
 import { TiGroupOutline } from 'react-icons/ti';
 import { HiChevronDoubleRight } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+
 import yummy from '../../assets/images/icons/yummy.svg';
 
-import Button from '../Button';
-
-const CardItem: React.FC = () => {
+function CardItem(): any {
   return (
-    <article className="teacher-item">
+    <article className="card-item">
       <header>
         <img src={yummy} alt="event owner" />
         <div>
-          <strong>21/12</strong>
-          <span>Churras da Fulana</span>
+          <strong>21/12/2021</strong>
+          <span>Churras da Mari</span>
         </div>
       </header>
-      <p>Rua das Candeias, 831 - São Sebastião --- 20:00</p>
+      <p>Churras para comemorar o aniversário da Mari</p>
 
       <footer>
         <div className="guestList">
@@ -29,16 +28,14 @@ const CardItem: React.FC = () => {
           />
           <span>20</span>
         </div>
-        <Link to="/event-details" className="class-edit">
-          <HiChevronDoubleRight
-            className="iconGroup"
-            size={28}
-            color="rgba(204, 162, 38)"
-          />
-        </Link>
+        <HiChevronDoubleRight
+          className="iconGroup"
+          size={28}
+          color="rgba(204, 162, 38)"
+        />
       </footer>
     </article>
   );
-};
+}
 
 export default CardItem;
