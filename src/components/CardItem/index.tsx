@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './CardItem.scss';
-
 import { TiGroupOutline } from 'react-icons/ti';
 import { HiChevronDoubleRight } from 'react-icons/hi';
+
+import './CardItem.scss';
 
 import yummy from '../../assets/images/icons/yummy.svg';
 
