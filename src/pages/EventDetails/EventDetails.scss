@@ -1,0 +1,23 @@
+#page-event-list {
+  width: 100vw;
+  height: 100vh;
+  main {
+    margin: 3.2rem auto;
+    width: 90%;
+  }
+}
+
+@media (min-width: 600px) {
+  #page-event-list {
+    max-width: 100%;
+    main {
+      background: var(--color-box-base);
+      width: 100%;
+      max-width: 100rem;  //verificar
+      border-radius: 0.8rem;
+      margin: 15rem auto 3.2rem;
+      padding-top: 6.4rem;
+      overflow: hidden;
+    }  
+  }
+}

@@ -8,7 +8,7 @@ import './EventRegister.scss';
 
 const EventRegister: React.FC = () => {
   return (
-    <div id="page-event-register" className="container">
+    <div id="page-event-register">
       <main>
         <form>
           <fieldset>

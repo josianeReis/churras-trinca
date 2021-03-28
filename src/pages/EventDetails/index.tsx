@@ -1,9 +1,16 @@
 import React from 'react';
+import Table from '../../components/Table';
 
 import './EventDetails.scss';
 
 const EventDetails: React.FC = () => {
-  return <div>Ola eu sou a tela de detalhes do churrasco</div>;
+  return (
+    <div id="page-event-list">
+      <main>
+        <Table />
+      </main>
+    </div>
+  );
 };
 
 export default EventDetails;

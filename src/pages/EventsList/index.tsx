@@ -1,33 +1,22 @@
 import React from 'react';
+import AddEventItem from '../../components/AddEventItem';
 import CardItem from '../../components/CardItem';
+import Input from '../../components/Input';
 
-import './EventsList.module.scss';
-
-// const classesLabel = [
-//   {
-//     id: 1,
-//     name: 'josiane',
-//   },
-//   {
-//     id: 2,
-//     name: 'patricia',
-//   },
-//   {
-//     id: 3,
-//     name: 'marcio',
-//   },
-// ];
+import './EventsList.scss';
 
 const EventsList: React.FC = () => {
   return (
-    <div id="page-event-list" className="container">
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div id="page-event-list">
+      <main>
+        <CardItem className="card-item" />
         <CardItem />
         <CardItem />
         <CardItem />
         <CardItem />
         <CardItem />
-      </div>
+        <AddEventItem />
+      </main>
     </div>
   );
 };
