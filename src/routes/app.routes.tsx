@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { AuthContext } from '../contexts/auth';
 import EventDetails from '../pages/EventDetails';
 import EventRegister from '../pages/EventRegister';
 import EventsList from '../pages/EventsList';
-import Home from '../pages/Home';
 
-function AppRoutes(): any {
+const AppRoutes: React.FC = () => {
+  const { signed } = useContext(AuthContext);
+
   return (
-    <BrowserRouter>
-      <Route path="/" exact component={Home} />
+    <Switch>
+      <Route path="/events-list" exact component={EventsList} />
       <Route path="/event-register" component={EventRegister} />
-      <Route path="/events-list" component={EventsList} />
       <Route path="/event-details" component={EventDetails} />
-    </BrowserRouter>
+      <Route
+        path="*"
+        component={
+          signed
+            ? () => <Redirect to="/events-list" />
+            : () => <Redirect to="/" />
+        }
+      />
+    </Switch>
   );
-}
+};
 
 export default AppRoutes;

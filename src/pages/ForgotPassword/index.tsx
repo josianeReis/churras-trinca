@@ -3,7 +3,7 @@ import React from 'react';
 import './ForgotPassword.scss';
 
 const ForgotPassword: React.FC = () => {
-  return <div>Ola eu sou a tela de ForgotPassword</div>;
+  return <div>Tela de Esqueci minha senha em construção</div>;
 };
 
 export default ForgotPassword;

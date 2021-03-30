@@ -1,0 +1,89 @@
+$flashsize: 9rem;
+
+#flash-message {
+  position: fixed;
+  top: 6.6rem;
+  right: -100%;
+  height: $flashsize;
+  width: calc(#{$flashsize} + 20rem);
+  z-index: 999;
+  display: flex;
+  cursor: pointer;
+  border-top-left-radius: 0.8rem;
+  border-bottom-left-radius: 0.8rem;
+  transition: right 0.6s cubic-bezier(0.36, 0, 0.66, -0.56);
+
+  .flash-content {
+    width: 20rem;
+    padding: 1.2rem 1rem;
+    border-left-width: 1rem;
+    border-left-style: solid;
+    .flash-heading {
+      font: 700 2rem Archivo;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+    .flash-message {
+      font: 400 1.2rem Poppins;
+      color: #fff;
+    }
+  }
+
+  .flash-icon {
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $flashsize;
+    height: $flashsize;
+    background: #fff;
+
+    img {
+      border-radius: 50%;
+      padding: 1.2rem;
+      width: 7rem;
+      height: 7rem;
+      object-fit: cover;
+    }
+  }
+  &.flash-active {
+    right: 0;
+  }
+
+  &.error-message {
+    .flash-icon {
+      img {
+        border: 1rem solid #ffbfc0;
+        background: var(--color-danger);
+      }
+    }
+
+    .flash-content {
+      border-left-color: #f37375;
+      background: linear-gradient(45deg, var(--color-danger), #f57b7d);
+    }
+  }
+  &.success-message {
+    .flash-icon {
+      img {
+        border: 1rem solid #aff5d0;
+        background: var(--color-secundary);
+      }
+    }
+
+    .flash-content {
+      border-left-color: #67db9e;
+      background: linear-gradient(45deg, var(--color-secundary), #6de0a8);
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  #flash-message {
+    width: 32rem;
+    .flash-content {
+      width: 24rem;
+    }
+  }
+}

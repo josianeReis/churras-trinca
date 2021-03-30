@@ -1,0 +1,131 @@
+#page-login {
+  .login-container {
+    width: 100%;
+    background: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    font-family: Poppins;
+    color: var(--color-text-title);
+
+    form {
+      fieldset {
+        border: 0;
+
+        .login-tools {
+          display: flex;
+          justify-content: flex-end;
+          margin: 2.4rem 0;
+          width: 100%;
+  
+          a {
+            text-decoration: none;
+            font: 400 1.2rem Poppins;
+            color: var(--color-text-complement);
+          }
+        }
+
+        legend {
+          p {
+            color: var(--color-text-title);
+            font: 700 2.2rem Poppins;
+          }
+        }
+
+        legend + span {
+          font-size: 0.8rem;
+        }
+
+        .login-submit {
+          flex: 1;
+          display: flex;
+          width: 100%;
+          padding: 1.6rem 0;
+          justify-content: center;
+          align-items: center;
+          background: var(--color-line-in-white);
+          color: var(--color-text-complement);
+          border: 0;
+          outline: 0;
+          transition: 0.2s;
+          border-radius: 0.8rem;
+          cursor: not-allowed;
+
+          &.login-submit-active {
+            background: var(--color-secundary);
+            color: var(--color-button-text);
+            cursor: pointer;
+          }
+        }
+      }
+
+      .login-footer {
+        display: none;
+
+        .signup {
+          font-family: Poppins;
+          font-size: 1.4rem;
+
+          p {
+            color: var(--color-text-complement);
+            font-weight: 400;
+          }
+
+          a {
+            color: var(--color-primary-dark);
+            font-weight: 700;
+          }
+        }
+
+        span {
+          font: 400 0.8rem Poppins;
+          color: var(--color-text-complement);
+        }
+      }
+
+      .login-footer {
+        display: none;
+  
+        .signup {
+          font-family: Poppins;
+          font-size: 1.4rem;
+  
+          p {
+            color: var(--color-text-complement);
+            font-weight: 400;
+          }
+  
+          a {
+            color: var(--color-primary-dark);
+            font-weight: 700;
+          }
+        }
+  
+        span {
+          font: 400 1rem Poppins;
+          color: var(--color-text-complement);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .login-container {
+    form {
+      fieldset legend a {
+        display: none;
+      }
+
+      .login-footer {
+        margin-top: 8rem;
+        display: flex !important;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%;
+      }
+    }
+  }
+}

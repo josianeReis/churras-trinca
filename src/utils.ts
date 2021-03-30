@@ -1,34 +1,212 @@
 // Event data
 
-export const eventData = {
-  name: 'Niver do Gui',
-  scheduled: '01/12/2020',
-  contributionValue: 20,
-  confirmedGuests: [
-    {
-      name: 'Alice',
-      email: 'alice@teste.com.br',
-      paid: 20,
-    },
-    {
-      name: 'Beto',
-      email: 'beto@teste.com.br',
-      paid: 20,
-    },
-    {
-      name: 'Diego B.',
-      email: 'diego-b@teste.com.br',
-      paid: 20,
-    },
-    {
-      name: 'Diego P.',
-      email: 'diego-p@teste.com.br',
-      paid: 20,
-    },
-    {
-      name: 'Michele',
-      email: 'michele@teste.com.br',
-      paid: 20,
-    },
-  ],
-};
+export const mockEventData = [
+  {
+    title: 'Niver do Gui',
+    description: 'Churras para comemorar o niver do Guilherme',
+    notes: 'Não é permitido levar acompanhante',
+    manager: 'Marina',
+    scheduled: '01/12/2020',
+    contributionValue: 20,
+    confirmedGuests: [
+      {
+        name: 'Alice',
+        email: 'alice@teste.com.br',
+        value: 20,
+        isPaid: true,
+      },
+      {
+        name: 'Beto',
+        email: 'beto@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Diego B.',
+        email: 'diego-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Ana',
+        email: 'Ana-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Michele',
+        email: 'michele@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Carolina',
+        email: 'carolina-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Josiane',
+        email: 'josiane@teste.com.br',
+        value: 20,
+        isPaid: true,
+      },
+    ],
+  },
+  {
+    title: 'Niver do Gui',
+    description: 'Churras para comemorar o niver do Guilherme',
+    notes: 'Não é permitido levar acompanhante',
+    manager: 'Marina',
+    scheduled: '01/12/2020',
+    contributionValue: 20,
+    confirmedGuests: [
+      {
+        name: 'Alice',
+        email: 'alice@teste.com.br',
+        value: 20,
+        isPaid: true,
+      },
+      {
+        name: 'Beto',
+        email: 'beto@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Diego B.',
+        email: 'diego-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Ana',
+        email: 'Ana-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Michele',
+        email: 'michele@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Carolina',
+        email: 'carolina-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Josiane',
+        email: 'josiane@teste.com.br',
+        value: 20,
+        isPaid: true,
+      },
+    ],
+  },
+  {
+    title: 'Niver do Gui',
+    description: 'Churras para comemorar o niver do Guilherme',
+    notes: 'Não é permitido levar acompanhante',
+    manager: 'Marina',
+    scheduled: '01/12/2020',
+    contributionValue: 20,
+    confirmedGuests: [
+      {
+        name: 'Alice',
+        email: 'alice@teste.com.br',
+        value: 20,
+        isPaid: true,
+      },
+      {
+        name: 'Beto',
+        email: 'beto@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Diego B.',
+        email: 'diego-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Ana',
+        email: 'Ana-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Michele',
+        email: 'michele@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Carolina',
+        email: 'carolina-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Josiane',
+        email: 'josiane@teste.com.br',
+        value: 20,
+        isPaid: true,
+      },
+    ],
+  },
+  {
+    title: 'Niver do Gui',
+    description: 'Churras para comemorar o niver do Guilherme',
+    notes: 'Não é permitido levar acompanhante',
+    manager: 'Marina',
+    scheduled: '01/12/2020',
+    contributionValue: 20,
+    confirmedGuests: [
+      {
+        name: 'Alice',
+        email: 'alice@teste.com.br',
+        value: 20,
+        isPaid: true,
+      },
+      {
+        name: 'Beto',
+        email: 'beto@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Diego B.',
+        email: 'diego-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Ana',
+        email: 'Ana-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Michele',
+        email: 'michele@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Carolina',
+        email: 'carolina-b@teste.com.br',
+        value: 20,
+        isPaid: false,
+      },
+      {
+        name: 'Josiane',
+        email: 'josiane@teste.com.br',
+        value: 20,
+        isPaid: true,
+      },
+    ],
+  },
+];

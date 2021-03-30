@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-import { BrowserRouter, Route } from 'react-router-dom';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import ForgotPassword from '../pages/ForgotPassword';
+import { AuthContext } from '../contexts/auth';
 
-function AuthRoutes(): any {
+const AuthRoutes: React.FC = () => {
+  const { signed } = useContext(AuthContext);
+
   return (
-    <BrowserRouter>
+    <Switch>
       <Route path="/" exact component={Login} />
-      <Route path="/login" exact component={Login} />
       <Route path="/signup" exact component={SignUp} />
       <Route path="/forgot-password" exact component={ForgotPassword} />
-    </BrowserRouter>
+      <Route
+        path="*"
+        component={
+          signed
+            ? () => <Redirect to="/events-list" />
+            : () => <Redirect to="/" />
+        }
+      />
+    </Switch>
   );
-}
+};
 
 export default AuthRoutes;

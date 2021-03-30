@@ -1,33 +1,29 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable func-names */
-/* eslint-disable camelcase */
 import React, { createContext, useState, useEffect } from 'react';
-import * as auth from '../services/auth';
+
+import { fakeAuth as auth } from '../services/auth';
 import api from '../services/api';
-import { UserData } from '../services/auth';
+import FlashMessage from '../components/FlashMessage';
 
+interface User {
+  name: string;
+  email: string;
+}
 interface AuthContextData {
+  loading: boolean;
   signed: boolean;
-  user: UserData;
-  signIn(params: { password: string; email: string }): Promise<UserData>;
-
-  register(params: {
-    password: string;
-    email: string;
-    name: string;
-    surname: string;
-  }): Promise<UserData>;
-  signOut(): void;
+  user: User | null;
+  signIn(email: string, password: string): Promise<void>;
   emitMessage(text: string, type?: string, time?: number): void;
-  setLocalUser(param: UserData): void;
+  signOut(): void;
 }
 
 export const AuthContext = createContext<AuthContextData>(
   {} as AuthContextData
 );
 
-const AuthProvider: React.FunctionComponent = ({ children }) => {
-  const [user, setUser] = useState<UserData | null>(null);
+export const AuthProvider: React.FC = ({ children }) => {
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User | null>(null);
   const [flash, setFlash] = useState<{
     text: string;
     type: string;
@@ -38,126 +34,41 @@ const AuthProvider: React.FunctionComponent = ({ children }) => {
     setFlash({ text, type, time });
   }
 
-  function signOut() {
-    localStorage.removeItem('@trinca:user');
-    localStorage.removeItem('@trinca:token');
-    localStorage.removeItem('@trinca:refresh_token');
-
-    setUser(null);
-  }
-
-  function setLocalUser(userData: UserData) {
-    setUser(userData);
-    localStorage.setItem('@trinca:user', JSON.stringify(userData));
-  }
-
-  function setLocalToken(tokenData: string, refreshTokenData: string) {
-    // setToken(tokenData)
-    api.defaults.headers.Authorization = `Bearer ${tokenData}`;
-    localStorage.setItem('@trinca:token', JSON.stringify(tokenData));
-    localStorage.setItem(
-      '@trinca:refresh_token',
-      JSON.stringify(refreshTokenData)
-    );
-  }
-
-  async function signIn(params: {
-    email: string;
-    password: string;
-    refresh_token?: string;
-  }) {
-    await auth
-      .authenticate(params)
-      .then((response) => {
-        const { token, refresh_token, user: userData } = response.data;
-        setLocalToken(token, refresh_token);
-        setLocalUser(userData);
-        api.defaults.headers.Authorization = `Bearer ${token}`;
-      })
-      .catch(() => {
-        signOut();
-      });
-  }
-
-  api.interceptors.response.use(
-    function (response) {
-      return response;
-    },
-    async function (error) {
-      if (error.response.status === 401) {
-        return signIn({
-          email: '',
-          password: '',
-          refresh_token: JSON.parse(
-            localStorage.getItem('@trinca:refresh_token') as string
-          ),
-        });
-      }
-      if (error.response.status === 403) {
-        return emitMessage(
-          'Você não tem permissão para acessar os dados desta página.',
-          'error'
-        );
-      }
-      if (error.response.status === 404) {
-        return emitMessage('Esta página não foi encontrada.', 'error');
-      }
-      return Promise.reject(error);
-    }
-  );
-
-  async function register(params: {
-    email: string;
-    password: string;
-    name: string;
-    surname: string;
-  }) {
-    await auth.register(params);
-
-    // setLocalToken(response.token, response.refresh_token)
-    // setLocalUser(response.user)
-  }
-
   useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem('@trinca:user') as string));
-    setLocalToken(
-      JSON.parse(localStorage.getItem('@trinca:token') as string),
-      JSON.parse(localStorage.getItem('@trinca:refresh_token') as string)
-    );
+    const storagedUser = localStorage.getItem('@trinca:user');
+    const storagedToken = localStorage.getItem('@trinca:token');
 
-    let refresh_token = localStorage.getItem('@trinca:refresh_token') as string;
-
-    if (
-      typeof refresh_token === 'undefined' ||
-      refresh_token === 'null' ||
-      refresh_token === ''
-    ) {
-      signOut();
-    } else {
-      refresh_token = JSON.parse(refresh_token);
-      signIn({ email: '', password: '', refresh_token }).then();
+    if (storagedUser && storagedToken) {
+      setUser(JSON.parse(storagedUser));
+      api.defaults.headers.authorization = `Bearer ${storagedToken}`;
     }
+
+    setLoading(false);
   }, []);
+
+  async function signIn(email: string, password: string) {
+    const { data } = await auth();
+    console.log(`email: ${email}; password: ${password}`);
+
+    setUser(data.user);
+    api.defaults.headers.authorization = `Bearer ${data.token}`;
+
+    localStorage.setItem('@trinca:user', JSON.stringify(data.user));
+    localStorage.setItem('@trinca:token', data.token);
+  }
+
+  function signOut() {
+    setUser(null);
+    api.defaults.headers.authorization = null;
+    localStorage.clear();
+  }
 
   return (
     <AuthContext.Provider
-      value={{
-        signed: !!user,
-        // @ts-expect-error: alguma justificativa
-        user,
-        // @ts-expect-error: alguma justificativa
-        signIn,
-        signOut,
-        // @ts-expect-error: alguma justificativa
-        register,
-        setLocalUser,
-        emitMessage,
-      }}
+      value={{ loading, signed: !!user, user, signIn, signOut, emitMessage }}
     >
-      <span>{flash.text}</span>
+      <FlashMessage text={flash.text} type={flash.type} time={flash.time} />
       {children}
     </AuthContext.Provider>
   );
 };
-
-export default AuthProvider;

@@ -8,9 +8,30 @@ import './CardItem.scss';
 import { Link } from 'react-router-dom';
 import yummy from '../../assets/images/icons/yummy.svg';
 
-type Props = React.HTMLAttributes<any>;
+// type guest = {
+//   name: string;
+//   email: string;
+//   value: string;
+//   isPaid: boolean;
+// };
 
-const CardItem: React.FC<Props> = () => {
+// type eventDataType = {
+//   name: string;
+//   scheduled: string;
+//   contributionValue: string;
+//   confirmedGuests: any;
+// };
+
+type Props = {
+  eventData: any;
+  // title: string;
+  // scheduled: string;
+  // description: string;
+  // contributionValue: string;
+  // confirmedGuests: any;
+} & React.HTMLAttributes<any>;
+
+const CardItem: React.FC<Props> = ({ eventData }: Props) => {
   return (
     <Link
       to="/event-details"
@@ -21,12 +42,12 @@ const CardItem: React.FC<Props> = () => {
         <header>
           <img src={yummy} alt="event owner" />
           <div>
-            <strong>21/12/2021</strong>
-            <span>Churras da Mari</span>
+            <strong>{eventData.scheduled}</strong>
+            <span>{eventData.title}</span>
           </div>
         </header>
 
-        <p>Churras para comemorar o aniversário da Mari</p>
+        <p>{eventData.description}</p>
 
         <footer>
           <div className="guestList">
@@ -35,7 +56,7 @@ const CardItem: React.FC<Props> = () => {
               size={24}
               color="rgba(204, 162, 38)"
             />
-            <span>20</span>
+            <span>{eventData.confirmedGuests.length || 20}</span>
           </div>
           <HiChevronDoubleRight
             className="iconGroup"

@@ -1,23 +1,52 @@
-#page-event-list {
+#page-event-details {
   width: 100vw;
   height: 100vh;
+  
+  .profile-header {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    & > form {
+      display: block;
+      margin: 0 auto;
+      width: 14rem;
+    }
+  }
+  
   main {
-    margin: 3.2rem auto;
+    // margin: -3.2rem auto;
     width: 90%;
+
+    .details-container {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
   }
 }
 
 @media (min-width: 600px) {
-  #page-event-list {
+  #page-event-details {
     max-width: 100%;
+    .guest-details,
     main {
       background: var(--color-box-base);
       width: 100%;
       max-width: 100rem;  //verificar
       border-radius: 0.8rem;
-      margin: 15rem auto 3.2rem;
-      padding-top: 6.4rem;
+      margin: -4rem auto 3.2rem;
+      padding: 4rem;
       overflow: hidden;
     }  
+
+    .guest-details {
+      margin-top: 4rem;
+    }
   }
 }

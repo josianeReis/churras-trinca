@@ -23,13 +23,22 @@
     font-weight: 400;
     font-size: 2rem;
   }
+
+  .profile-header {
+    margin-top: 4rem;
+    & > form {
+      display: block;
+      margin: 0 auto;
+      width: 14rem;
+    }
+  }
   
   main {
     background: var(--color-box-base);
     width: 100%;
     max-width: 74rem;  //verificar
     border-radius: 0.8rem;
-    margin: 5rem auto 3.2rem;
+    margin: -4rem auto 3.2rem;
     padding-top: 6.4rem;
     overflow: hidden;
     

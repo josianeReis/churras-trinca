@@ -1,11 +1,43 @@
 #page-event-list {
   width: 100vw;
   height: 100vh;
+  
+  .profile-header {
+    margin-top: 4rem;
+    & > form {
+      display: block;
+      margin: 0 auto;
+      width: 14rem;
+    }
+    
+    h2,
+    h3 {
+      text-align: center;
+    }
+    
+    h2 {
+      color: var(--color-button-text);
+      font-size: 3.2rem;
+    }
+    
+    h3 {
+      color: var(--color-line-in-white);
+      font-weight: 400;
+      font-size: 2rem;
+    }
+  }
+  
   main {
     margin: 3.2rem auto;
-    width: 90%;
+    background: var(--color-box-base);
+    width: 100%;
+    border-radius: 0.8rem;
+    margin: -4rem auto 3.2rem;
+    padding-top: 6.4rem;
+    overflow: hidden;
   }
 }
+
 
 @media (min-width: 600px) {
   #page-event-list {
@@ -13,14 +45,15 @@
     main {
       padding: 3.2rem 0;
       max-width: 1100px;
-      margin: 5rem auto;
+      margin: -4rem auto 3.2rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-
+      
       .card-item {
         margin-left: 1rem;
       }
     }
   }
 }
+

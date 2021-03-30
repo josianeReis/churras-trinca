@@ -1,41 +1,42 @@
 import React from 'react';
-
-import { TiGroupOutline } from 'react-icons/ti';
-import { HiChevronDoubleRight } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 import './AddEventItem.scss';
+import addIcon from '../../assets/images/bbk-grill.svg';
 
-import yummy from '../../assets/images/icons/yummy.svg';
+// type guest = {
+//   name: string;
+//   email: string;
+//   value: string;
+//   isPaid: boolean;
+// };
 
-function AddEventItem(): any {
+// type eventDataType = {
+//   name: string;
+//   scheduled: string;
+//   contributionValue: string;
+//   confirmedGuests: any;
+// };
+
+type Props = React.HTMLAttributes<any>;
+
+const CardAddItem: React.FC<Props> = () => {
   return (
-    <article className="card-item">
-      <header>
-        <img src={yummy} alt="event owner" />
-        <div>
-          <strong>21/12/2021</strong>
-          <span>Churras da Mari</span>
+    <Link
+      to="/event-register"
+      style={{ textDecorationColor: 'none' }}
+      className="card-add-container"
+    >
+      <article className="card-add-item">
+        <div className="button-container">
+          <div className="add-icon-container">
+            <img src={addIcon} alt="Add event" />
+          </div>
         </div>
-      </header>
-      <p>Churras para comemorar o aniversário da Mari</p>
-
-      <footer>
-        <div className="guestList">
-          <TiGroupOutline
-            className="iconGroup"
-            size={24}
-            color="rgba(204, 162, 38)"
-          />
-          <span>20</span>
-        </div>
-        <HiChevronDoubleRight
-          className="iconGroup"
-          size={28}
-          color="rgba(204, 162, 38)"
-        />
-      </footer>
-    </article>
+        <span>Adicionar Churras</span>
+      </article>
+    </Link>
   );
-}
+};
 
-export default AddEventItem;
+export default CardAddItem;
